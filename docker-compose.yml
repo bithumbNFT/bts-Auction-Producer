@@ -1,7 +1,7 @@
 version: '1'
 services:
   app:
-    build: ./producer-server
+    build: ./producer
     container_name: producer-server
     restart: always
     ports:

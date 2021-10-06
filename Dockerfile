@@ -1,5 +1,5 @@
 FROM openjdk:11-jdk-slim
-LABEL maintainer="chowond@gmail.com"
+LABEL maintainer="BTS"
 VOLUME /tmp
 ARG JAR_FILE=./*.jar
 ADD ${JAR_FILE} app.jar
