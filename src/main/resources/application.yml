@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: auction-producer
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+server:
+  port: 9091
