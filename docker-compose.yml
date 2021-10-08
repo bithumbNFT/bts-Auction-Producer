@@ -1,9 +1,9 @@
 version: '1'
 services:
   app:
-    build: ./producer
+    build: .
     container_name: producer-server
     restart: always
     ports:
-      - 8080:8080
+      - 8083:8083
 
