@@ -8,6 +8,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.sql.Time;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Date;
 
 @Document(collection = "auction")
 @Data
@@ -26,6 +30,8 @@ public class Auction implements Serializable {
     private String email;
     @ApiParam(value = "현재 매수 호가", required = true)
     private Integer auctionPrice;
+    @ApiParam(value = "경매 마감 시간", required = true)
+    private Time time;
 
     @Builder
     public Auction(String nft_id, String email, int auctionPrice) {
