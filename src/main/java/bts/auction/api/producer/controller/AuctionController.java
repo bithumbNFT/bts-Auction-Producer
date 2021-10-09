@@ -41,7 +41,7 @@ public class AuctionController {
         Timer time = Timer.builder().NftId(timeDto.getNft())
                 .time(formatDateTime).build();
         timeRepository.save(time);
-        log.debug("========Auction Start========");
+        log.info("========start Auction========");
         return "timetable insert";
     }
 
@@ -58,7 +58,7 @@ public class AuctionController {
         //카프카 브로커로 메시지 전송
         kafkaProducer.sendMessage(produceAuction);
         //몽고 DB에 데이터 저장
-        log.debug("========Produce Message========");
+        log.info("========Publish nft messages========");
         return "kafka produce";
     }
 }
