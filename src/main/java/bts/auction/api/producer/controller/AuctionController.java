@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.sql.Time;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 @Api(value = "Auction Producer Controller")
 @Slf4j
@@ -33,11 +34,12 @@ public class AuctionController {
     @ApiOperation(value = "경매 시작 시, 경매 마감 시간 설정")
     @PostMapping("/start")
     public String Auctionstart(@RequestBody TimerDto timeDto){
-        LocalTime localTime = LocalTime.now().plusMinutes(timeDto.getTime()); //현재 시간 + 설정 시간
-        System.out.println(timeDto);
-        Time endtime = Time.valueOf(localTime);
+        LocalDateTime localTime = LocalDateTime.now().plusMinutes(timeDto.getTime());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formatDateTime = localTime.format(formatter);
+        System.out.println(formatDateTime);
         Timer time = Timer.builder().NftId(timeDto.getNft())
-                                  .time(endtime).build();
+                .time(formatDateTime).build();
         timeRepository.save(time);
         log.debug("========Auction Start========");
         return "timetable insert";

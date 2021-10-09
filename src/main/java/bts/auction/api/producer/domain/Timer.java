@@ -18,10 +18,10 @@ import java.util.Date;
 public class Timer {
     @Id
     String NftId;
-    Time time;
+    String time;
 
     @Builder
-    public Timer(String nftId, Time time)
+    public Timer(String nftId, String time)
     {
         this.NftId = nftId;
         this.time = time;

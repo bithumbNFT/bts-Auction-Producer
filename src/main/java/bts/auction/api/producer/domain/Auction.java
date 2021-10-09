@@ -31,7 +31,7 @@ public class Auction implements Serializable {
     @ApiParam(value = "현재 매수 호가", required = true)
     private Integer auctionPrice;
     @ApiParam(value = "경매 마감 시간", required = true)
-    private Time time;
+    private String time;
 
     @Builder
     public Auction(String nft_id, String email, int auctionPrice) {
