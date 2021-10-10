@@ -40,6 +40,8 @@ public class AuctionController {
         System.out.println(formatDateTime);
         Timer time = Timer.builder().NftId(timeDto.getNft())
                 .time(formatDateTime).build();
+        Auction auction = Auction.builder().nft_id(timeDto.getNft()).auctionPrice(null).email(null).time(formatDateTime).build();
+        kafkaProducer.sendMessage(auction);
         timeRepository.save(time);
         log.info("========start Auction========");
         return "timetable insert";
